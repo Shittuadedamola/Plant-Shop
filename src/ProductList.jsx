@@ -266,6 +266,7 @@ function ProductList({ onHomeClick }) {
             ...prevState, 
             [plant.name]: true,
           }));
+        
     }
 
     const calculateTotalQuantity = () => {
@@ -312,8 +313,9 @@ function ProductList({ onHomeClick }) {
                             <button
                                 className="product-button"
                                 onClick={() => handleAddToCart(plant)}
+                                disabled={!!addedToCart[plant.name]}
                             >
-                                Add to Cart
+                                {addedToCart[plant.name] ? 'Added' : 'Add to Cart'}
                             </button>
                             </div>
                         ))}
